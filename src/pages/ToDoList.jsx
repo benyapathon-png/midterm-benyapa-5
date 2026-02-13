@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useState, useEffect} from 'react'
 
 
-
 function ToDoList() {
   const [getToDo,setGetToDo] = useState([])
   const [addTask,setAddTask] = useState("")
@@ -17,7 +16,7 @@ function ToDoList() {
     .catch(err => setError(err))
     .finally(()=>setLoading(false))
   }
-syn
+
   useEffect(()=>{
     hdlFetch()
   },[])
@@ -34,9 +33,9 @@ console.log(getToDo)
 
     const hdlPost = async (evt) => {
       evt.preventDefault()
-     const res = await axios.post('https://drive-accessible-pictures-send.trycloudflare.com/todos/5',addTask)
+      const res = await axios.post('https://drive-accessible-pictures-send.trycloudflare.com/todos/5',addTask)
       console.log(res.data)
-    
+      hdlFetch()
     }
     console.log(addTask)
     
